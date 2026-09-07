@@ -3,18 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aeroitalia Roblox - La nuova compagnia aerea su Roblox</title>
+
+    <!-- Primary Meta Tags (SEO) -->
+    <title>Aeroitalia Roblox | La Nuova Compagnia Aerea su Roblox</title>
+    <meta name="title" content="Aeroitalia Roblox | La Nuova Compagnia Aerea su Roblox">
+    <meta name="description" content="Prenota i tuoi voli gratuiti da Skiathos a Roma con Aeroitalia su Roblox. Unisciti al nostro gruppo Roblox e al server Discord per volare con noi!">
+    <meta name="keywords" content="Aeroitalia Roblox, Ro-Aviation, Roblox Airline, Voli Roblox, Skiathos Roma, Aeroitalia, Roblox Group">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="Italian">
+    <meta name="author" content="Aeroitalia Roblox">
+
+    <!-- Open Graph / Discord / Facebook SEO -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Aeroitalia Roblox - Prenota Voli Gratuite">
+    <meta property="og:description" content="Vola da Skiathos a Roma a 0 Robux! Entra nel gruppo Roblox ed unisciti alla community Discord.">
+    <meta property="og:image" content="aeroitalia.png">
+
     <!-- Google Fonts & Font Awesome Icons -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
         :root {
             --primary-green: #009640;
             --primary-red: #e30613;
-            --dark-gray: #333333;
+            --dark-gray: #1a1a1a;
             --light-bg: #f4f6f8;
             --white: #ffffff;
+            --border-color: #e2e8f0;
         }
 
         * {
@@ -27,25 +43,30 @@
         body {
             background-color: var(--light-bg);
             color: var(--dark-gray);
+            overflow-x: hidden;
         }
 
-        /* Top Navbar */
+        /* Top Bar Sub-navigation */
         .top-bar {
             background-color: #ffffff;
-            border-bottom: 1px solid #e0e0e0;
+            border-bottom: 1px solid var(--border-color);
             padding: 8px 5%;
             display: flex;
             justify-content: flex-end;
-            font-size: 0.8rem;
-            font-weight: 600;
-            gap: 20px;
-            color: #666;
+            align-items: center;
+            font-size: 0.78rem;
+            font-weight: 700;
+            gap: 22px;
+            letter-spacing: 0.5px;
         }
 
         .top-bar a {
-            color: #666;
+            color: #555;
             text-decoration: none;
-            transition: color 0.2s;
+            transition: color 0.2s ease, transform 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 6px;
         }
 
         .top-bar a:hover {
@@ -59,10 +80,10 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
             position: sticky;
             top: 0;
-            z-index: 100;
+            z-index: 1000;
         }
 
         .logo-container {
@@ -71,17 +92,24 @@
             text-decoration: none;
         }
 
-        /* Logo nettamente più grande */
+        /* LOGO MOLTO PIÙ GRANDE */
         .logo-img {
-            height: 110px; 
+            height: 160px;
             width: auto;
+            max-width: 450px;
             object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+
+        .logo-img:hover {
+            transform: scale(1.02);
         }
 
         nav ul {
             display: flex;
             list-style: none;
-            gap: 20px;
+            gap: 25px;
+            align-items: center;
         }
 
         nav ul li a {
@@ -89,94 +117,130 @@
             color: var(--dark-gray);
             font-weight: 600;
             font-size: 0.95rem;
-            transition: color 0.2s;
+            transition: color 0.2s ease;
+            position: relative;
+            padding-bottom: 4px;
         }
 
         nav ul li a:hover {
             color: var(--primary-green);
         }
 
-        /* Hero Banner Section con la tua immagine */
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--primary-green);
+            transition: width 0.3s ease;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Banner Section */
         .hero {
             position: relative;
-            height: 550px;
-            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('Screenshot 2026-09-07 201429.png') center/cover no-repeat;
+            min-height: 580px;
+            background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url('Screenshot 2026-09-07 201429.png') center/cover no-repeat;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 0 20px;
+            padding: 40px 20px;
         }
 
-        /* Booking Widget */
+        /* Booking Widget Container */
         .search-container {
             background: var(--white);
-            border-radius: 12px;
-            padding: 25px;
+            border-radius: 16px;
+            padding: 30px;
             width: 100%;
-            max-width: 1000px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-            margin-top: 40px;
+            max-width: 1100px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            margin-top: 20px;
         }
 
         .search-title {
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             color: #666;
-            margin-bottom: 15px;
+            margin-bottom: 18px;
             font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
         .search-grid {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr 1fr auto;
-            gap: 12px;
+            gap: 15px;
             align-items: center;
         }
 
         .input-group {
-            border: 1px solid #ccc;
-            padding: 10px 15px;
-            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            padding: 12px 16px;
+            border-radius: 10px;
             display: flex;
             flex-direction: column;
             background: #fff;
+            transition: border-color 0.2s;
+        }
+
+        .input-group:focus-within {
+            border-color: var(--primary-green);
         }
 
         .input-group label {
             font-size: 0.75rem;
-            color: #888;
+            color: #777;
             margin-bottom: 4px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .input-group label i {
+            color: var(--primary-green);
         }
 
         .input-group select, .input-group input {
             border: none;
             outline: none;
-            font-weight: 600;
+            font-weight: 700;
             color: var(--dark-gray);
             background: transparent;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
+            cursor: pointer;
         }
 
         .btn-search {
             background-color: var(--primary-green);
             color: white;
             border: none;
-            padding: 0 25px;
+            padding: 0 30px;
             height: 100%;
-            min-height: 50px;
-            border-radius: 8px;
+            min-height: 55px;
+            border-radius: 10px;
             font-weight: 700;
-            font-size: 1rem;
+            font-size: 1.05rem;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 10px;
-            transition: background 0.3s;
+            transition: background-color 0.3s ease, transform 0.1s ease;
+            box-shadow: 0 4px 12px rgba(0, 150, 64, 0.3);
         }
 
         .btn-search:hover {
             background-color: #007a33;
+            transform: translateY(-1px);
         }
 
         /* Promo Badge on Hero */
@@ -185,79 +249,100 @@
             bottom: 30px;
             left: 5%;
             background: var(--white);
-            padding: 15px 25px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            padding: 16px 28px;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
         }
 
         .promo-badge .price {
             display: inline-block;
             border: 2px solid var(--dark-gray);
             border-radius: 20px;
-            padding: 2px 12px;
-            font-weight: 700;
+            padding: 2px 14px;
+            font-weight: 800;
             font-size: 0.9rem;
-            margin-bottom: 5px;
+            margin-bottom: 6px;
         }
 
         .promo-badge h3 {
             color: var(--primary-green);
-            font-size: 1.3rem;
+            font-size: 1.4rem;
+            font-weight: 700;
         }
 
         /* Ticker Bar */
         .ticker-bar {
             background: #fff;
-            padding: 12px 5%;
-            border-bottom: 1px solid #ddd;
+            padding: 15px 5%;
+            border-bottom: 1px solid var(--border-color);
             text-align: center;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             color: #555;
+            box-shadow: inset 0 2px 5px rgba(0,0,0,0.02);
         }
 
         .ticker-bar strong {
             color: var(--dark-gray);
         }
 
-        /* Info Section */
+        /* Main Content Info Section */
         .info-section {
             text-align: center;
-            padding: 50px 20px;
+            padding: 60px 20px;
+            max-width: 900px;
+            margin: 0 auto;
         }
 
-        .info-section h2 {
-            font-size: 1.8rem;
+        .info-section h1 {
+            font-size: 2.1rem;
             color: var(--primary-green);
-            margin-bottom: 10px;
+            margin-bottom: 15px;
+            font-weight: 800;
         }
 
-        /* Responsive Design */
-        @media (max-width: 900px) {
-            .search-grid {
-                grid-template-columns: 1fr;
-            }
+        .info-section p {
+            font-size: 1.05rem;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 1100px) {
+            .logo-img { height: 120px; }
+            .search-grid { grid-template-columns: 1fr 1fr; }
+            .btn-search { grid-column: span 2; }
             nav { display: none; }
-            .hero { height: auto; padding: 40px 20px; }
-            .promo-badge { position: relative; bottom: 0; left: 0; margin-top: 20px; }
+        }
+
+        @media (max-width: 768px) {
+            .logo-img { height: 90px; }
+            .search-grid { grid-template-columns: 1fr; }
+            .btn-search { grid-column: span 1; }
+            .hero { min-height: auto; padding: 30px 15px; }
+            .promo-badge { position: relative; bottom: 0; left: 0; margin-top: 25px; width: 100%; text-align: center; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Top Bar -->
+    <!-- Top Bar Links (Discord & Roblox Group) -->
     <div class="top-bar">
-        <a href="#">DISCORD</a>
-        <a href="#">GRUPPO ROBLOX</a>
+        <a href="https://discord.gg/RSH3TTbDEh" target="_blank" rel="noopener">
+            <i class="fa-brands fa-discord"></i> DISCORD
+        </a>
+        <a href="https://www.roblox.com/it/communities/16168989/AEZ-Aeroitalia#!/about" target="_blank" rel="noopener">
+            <i class="fa-solid fa-gamepad"></i> GRUPPO ROBLOX
+        </a>
         <a href="#">PARTNERS</a>
         <a href="#">CHECK-IN ROBLOX</a>
         <a href="#">ASSISTENZA</a>
         <a href="#"><i class="fa-solid fa-globe"></i> IT (Roblox)</a>
     </div>
 
-    <!-- Header Navigation -->
+    <!-- Header Navigation with Enlarged Logo -->
     <header>
-        <a href="#" class="logo-container">
-            <img src="aeroitalia.png" alt="Aeroitalia Logo" class="logo-img">
+        <a href="#" class="logo-container" title="Aeroitalia Roblox Home">
+            <img src="aeroitalia.png" alt="Aeroitalia Roblox Logo Official" class="logo-img">
         </a>
         <nav>
             <ul>
@@ -272,34 +357,34 @@
         </nav>
     </header>
 
-    <!-- Hero / Booking Section -->
-    <section class="hero">
+    <!-- Hero Booking Section -->
+    <main class="hero">
         <div class="search-container">
             <div class="search-title">Il vostro prossimo volo Roblox vi aspetta &darr;</div>
-            <form class="search-grid" onsubmit="event.preventDefault(); alert('Ricerca volo inviata per Skiathos - Roma (0 R$)!');">
+            <form class="search-grid" onsubmit="event.preventDefault(); alert('Volo selezionato: Skiathos (JSI) -> Roma (FCO) a 0 R$! Unisciti al Discord per imbarcarti.');">
                 
                 <div class="input-group">
-                    <label><i class="fa-solid fa-plane-departure"></i> Partenza</label>
-                    <select required>
+                    <label for="departure"><i class="fa-solid fa-plane-departure"></i> Partenza</label>
+                    <select id="departure" required>
                         <option value="JSI">Skiathos (JSI)</option>
                     </select>
                 </div>
 
                 <div class="input-group">
-                    <label><i class="fa-solid fa-plane-arrival"></i> Destinazione</label>
-                    <select required>
+                    <label for="arrival"><i class="fa-solid fa-plane-arrival"></i> Destinazione</label>
+                    <select id="arrival" required>
                         <option value="FCO">Roma (FCO)</option>
                     </select>
                 </div>
 
                 <div class="input-group">
-                    <label><i class="fa-regular fa-calendar-days"></i> Data del Volo</label>
-                    <input type="date" required>
+                    <label for="flight-date"><i class="fa-regular fa-calendar-days"></i> Data del Volo</label>
+                    <input type="date" id="flight-date" required>
                 </div>
 
                 <div class="input-group">
-                    <label><i class="fa-solid fa-user"></i> Passeggeri / Classe</label>
-                    <select>
+                    <label for="passengers"><i class="fa-solid fa-user"></i> Passeggeri / Classe</label>
+                    <select id="passengers">
                         <option>1 Passeggero (Economy)</option>
                         <option>1 Passeggero (Business VIP)</option>
                         <option>2 Passeggeri</option>
@@ -317,17 +402,17 @@
             <div class="price">da: 0 R$</div>
             <h3>Voli Roblox per Roma</h3>
         </div>
-    </section>
+    </main>
 
-    <!-- Flight Offers Ticker Bar -->
+    <!-- Flight Offers Bar -->
     <div class="ticker-bar">
         <span><strong>Skiathos (JSI) - Roma (FCO)</strong> da <strong>0 R$</strong> (Offerta Gratuita Roblox)</span>
     </div>
 
-    <!-- Info Section -->
+    <!-- SEO Content Section -->
     <section class="info-section">
-        <h2>Aeroitalia - La nuova compagnia aerea su Roblox</h2>
-        <p>Vola gratis da Skiathos a Roma sui nostri aerei! Vivi un'esperienza di volo unica ed esclusiva su Roblox.</p>
+        <h1>Aeroitalia - La nuova compagnia aerea su Roblox</h1>
+        <p>Benvenuto a bordo di Aeroitalia Roblox! Vola gratuitamente sulla rotta esclusiva da Skiathos (JSI) a Roma (FCO). Vivi un'esperienza di volo Ro-Aviation realistica, entra a far parte del nostro staff o viaggia in Business Class!</p>
     </section>
 
 </body>
