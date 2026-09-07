@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- ICONA SULLA SCHEDA DEL BROWSER -->
+    <!-- ICONA SULLA SCHEDA DEL BROWSER (aeroitalia.png) -->
     <link rel="icon" type="image/png" href="aeroitalia.png">
     <link rel="shortcut icon" type="image/png" href="aeroitalia.png">
 
@@ -18,7 +18,6 @@
         :root {
             --primary-green: #009640;
             --primary-red: #e30613;
-            --dark-blue: #002b49;
             --dark-gray: #1a1a1a;
             --light-bg: #f4f6f8;
             --white: #ffffff;
@@ -40,22 +39,41 @@
             overflow-x: hidden;
         }
 
-        /* HEADER COMPATTO ED ELEGANTE COME DA IMMAGINE */
-        header {
-            background: var(--white);
+        /* Top Bar Sub-navigation */
+        .top-bar {
+            background-color: #ffffff;
             border-bottom: 1px solid var(--border-color);
-            padding: 8px 3% 12px 3%;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.04);
-            position: relative;
-            z-index: 1000;
+            padding: 6px 5%;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            font-size: 0.78rem;
+            font-weight: 700;
+            gap: 22px;
         }
 
-        .header-container {
-            max-width: 1400px;
-            margin: 0 auto;
+        .top-bar a {
+            color: #555;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .top-bar a:hover {
+            color: var(--primary-green);
+        }
+
+        /* Header con Logo a 400px */
+        header {
+            background: var(--white);
+            padding: 10px 5%;
             display: flex;
             align-items: center;
             justify-content: space-between;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            position: relative;
+            z-index: 1000;
         }
 
         .logo-container {
@@ -63,68 +81,30 @@
             align-items: center;
         }
 
-        /* LOGO A 400px CON ALTEZZA COMPATTA */
+        /* LOGO IMPOSTATO A 400px */
         .logo-img {
             width: 400px;
             max-width: 100%;
             height: auto;
-            max-height: 55px;
             object-fit: contain;
             display: block;
         }
 
-        .nav-wrapper {
+        nav ul {
             display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-            gap: 8px;
-        }
-
-        /* Top sub-navigation bar */
-        .top-subnav {
-            display: flex;
-            align-items: center;
-            gap: 16px;
             list-style: none;
+            gap: 25px;
+            align-items: center;
         }
 
-        .top-subnav li a {
+        nav ul li a {
             text-decoration: none;
-            color: #555555;
-            font-size: 0.72rem;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-            display: flex;
-            align-items: center;
-            gap: 4px;
-            transition: color 0.2s;
+            color: var(--dark-gray);
+            font-weight: 600;
+            font-size: 0.95rem;
         }
 
-        .top-subnav li a:hover {
-            color: var(--primary-green);
-        }
-
-        /* Main navigation bar */
-        .main-nav {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            list-style: none;
-        }
-
-        .main-nav li a {
-            text-decoration: none;
-            color: var(--dark-blue);
-            font-size: 0.88rem;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            gap: 4px;
-            transition: color 0.2s;
-        }
-
-        .main-nav li a:hover {
+        nav ul li a:hover {
             color: var(--primary-green);
         }
 
@@ -342,38 +322,32 @@
 </head>
 <body>
 
-    <!-- Header Navigation stile originale Aeroitalia -->
+    <!-- Top Bar Links -->
+    <div class="top-bar">
+        <a href="https://discord.gg/RSH3TTbDEh" target="_blank"><i class="fa-brands fa-discord"></i> DISCORD</a>
+        <a href="https://www.roblox.com/it/communities/16168989/AEZ-Aeroitalia#!/about" target="_blank"><i class="fa-solid fa-gamepad"></i> GRUPPO ROBLOX</a>
+        <a href="#">PARTNERS</a>
+        <a href="https://discord.gg/RSH3TTbDEh" target="_blank">WEB CHECKIN</a>
+        <a href="#">ASSISTENZA</a>
+        <a href="#"><i class="fa-solid fa-globe"></i> IT (Roblox)</a>
+    </div>
+
+    <!-- Header Navigation con Logo AEROTALIATIAMO.png a 400px -->
     <header>
-        <div class="header-container">
-            <a href="#" class="logo-container">
-                <img src="AEROTALIATIAMO.png" alt="Aeroitalia Logo" class="logo-img">
-            </a>
-
-            <div class="nav-wrapper">
-                <!-- Sub Navigation Bar (Asta superiore) -->
-                <ul class="top-subnav">
-                    <li><a href="https://discord.gg/RSH3TTbDEh" target="_blank"><i class="fa-brands fa-discord"></i> DISCORD</a></li>
-                    <li><a href="https://www.roblox.com/it/communities/16168989/AEZ-Aeroitalia#!/about" target="_blank"><i class="fa-solid fa-gamepad"></i> ROBLOX</a></li>
-                    <li><a href="#">PARTNERS</a></li>
-                    <li><a href="https://discord.gg/RSH3TTbDEh" target="_blank">WEB CHECKIN</a></li>
-                    <li><a href="#">PRENOTAZIONE</a></li>
-                    <li><a href="#">NEWS</a></li>
-                    <li><a href="#"><i class="fa-solid fa-universal-access"></i> ASSISTENZA</a></li>
-                    <li><a href="#">LINGUA <i class="fa-solid fa-caret-down"></i></a></li>
-                </ul>
-
-                <!-- Main Navigation Bar (Asta principale) -->
-                <ul class="main-nav">
-                    <li><a href="#">Prenota</a></li>
-                    <li><a href="#">Ispirami <i class="fa-solid fa-caret-down"></i></a></li>
-                    <li><a href="#">Destinazioni</a></li>
-                    <li><a href="#">Chi siamo</a></li>
-                    <li><a href="#">La nostra flotta</a></li>
-                    <li><a href="#">Lavora con noi</a></li>
-                    <li><a href="#">Contattaci</a></li>
-                </ul>
-            </div>
-        </div>
+        <a href="#" class="logo-container">
+            <img src="AEROTALIATIAMO.png" alt="Aeroitalia Logo" class="logo-img">
+        </a>
+        <nav>
+            <ul>
+                <li><a href="#">Prenota Volo</a></li>
+                <li><a href="#">Ispirami</a></li>
+                <li><a href="#">Aeroporti Roblox</a></li>
+                <li><a href="#">Chi siamo</a></li>
+                <li><a href="#">La nostra Flotta</a></li>
+                <li><a href="#">Diventa Staff</a></li>
+                <li><a href="#">Contattaci</a></li>
+            </ul>
+        </nav>
     </header>
 
     <!-- Hero Booking Section -->
