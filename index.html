@@ -4,9 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- FAVICON (Icona della scheda del browser) -->
+    <link rel="icon" type="image/png" href="aeroitalia.png">
+    <link rel="shortcut icon" type="image/png" href="aeroitalia.png">
+
+    <!-- TITOLO DELLA SCHEDA -->
+    <title>Aeroitalia - la nuova compagnia</title>
+
     <!-- Primary Meta Tags (SEO) -->
-    <title>Aeroitalia Roblox | La Nuova Compagnia Aerea su Roblox</title>
-    <meta name="title" content="Aeroitalia Roblox | La Nuova Compagnia Aerea su Roblox">
+    <meta name="title" content="Aeroitalia - la nuova compagnia">
     <meta name="description" content="Prenota i tuoi voli gratuiti da Skiathos a Roma con Aeroitalia su Roblox. Unisciti al nostro gruppo Roblox e al server Discord per volare con noi!">
     <meta name="keywords" content="Aeroitalia Roblox, Ro-Aviation, Roblox Airline, Voli Roblox, Skiathos Roma, Aeroitalia, Roblox Group">
     <meta name="robots" content="index, follow">
@@ -15,7 +21,7 @@
 
     <!-- Open Graph / Discord / Facebook SEO -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Aeroitalia Roblox - Prenota Voli Gratuite">
+    <meta property="og:title" content="Aeroitalia - la nuova compagnia">
     <meta property="og:description" content="Vola da Skiathos a Roma a 0 Robux! Entra nel gruppo Roblox ed unisciti alla community Discord.">
     <meta property="og:image" content="aeroitalia.png">
 
@@ -33,7 +39,7 @@
             --border-color: #e2e8f0;
         }
 
-        /* PERMETTE LA PROTEZIONE ANTI-COPIA GLOBALMENTE */
+        /* PROTEZIONE ANTI-COPIA GLOBALMENTE */
         * {
             margin: 0;
             padding: 0;
@@ -81,8 +87,8 @@
         /* Main Header COMPATTO */
         header {
             background: var(--white);
-            padding: 10px 5%; /* Ridotto per non allargare la barra */
-            height: 70px; /* Altezza fissa compatta */
+            padding: 10px 5%;
+            height: 70px;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -101,13 +107,13 @@
 
         /* LOGO INGRANDITO SENZA ALLARGARE LA BARRA BIANCA */
         .logo-img {
-            height: 120px; /* L'immagine è più alta dei 70px dell'header */
+            height: 120px;
             width: auto;
             max-width: 400px;
             object-fit: contain;
             pointer-events: none;
             -webkit-user-drag: none;
-            transform: scale(1.3); /* Ingrandisce l'immagine */
+            transform: scale(1.3);
             transform-origin: left center;
         }
 
@@ -204,7 +210,6 @@
             cursor: pointer;
         }
 
-        /* Link Pulsante Cerca per Discord */
         .btn-search-link {
             text-decoration: none;
             height: 100%;
@@ -262,18 +267,53 @@
             font-weight: 700;
         }
 
-        /* Ticker Bar */
+        /* --- BARRA A SCORRIMENTO FLUIDO (TICKER BAR MARQUEE) --- */
         .ticker-bar {
             background: #fff;
-            padding: 15px 5%;
             border-bottom: 1px solid var(--border-color);
-            text-align: center;
-            font-size: 0.95rem;
-            color: #555;
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+            padding: 14px 0;
+            display: flex;
         }
 
-        .ticker-bar strong {
+        .ticker-track {
+            display: flex;
+            width: max-content;
+            animation: scrollTicker 25s linear infinite;
+        }
+
+        .ticker-bar:hover .ticker-track {
+            animation-play-state: paused; /* Si mette in pausa col mouse sopra */
+        }
+
+        .ticker-item {
+            font-size: 0.95rem;
+            color: #555;
+            padding: 0 40px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .ticker-item strong {
             color: var(--dark-gray);
+        }
+
+        .ticker-item .highlight {
+            color: var(--primary-green);
+            font-weight: 700;
+        }
+
+        /* Animazione CSS per lo scorrimento continuo */
+        @keyframes scrollTicker {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
         }
 
         /* Section Title & Routes Section */
@@ -290,7 +330,6 @@
             font-weight: 700;
         }
 
-        /* CARD ROTTA CON PROTEZIONE IMMAGINE */
         .route-card {
             background: #fff;
             border-radius: 24px;
@@ -312,7 +351,6 @@
             overflow: hidden;
         }
 
-        /* IMMAGINE PROTETTA: NO DRAG & NO POINTER EVENTS */
         .protected-img {
             width: 100%;
             height: 100%;
@@ -325,7 +363,6 @@
             user-drag: none;
         }
 
-        /* STRATO TRASPARENTE SOPRA L'IMMAGINE PER BLOCCARE IL TASTO DESTRO E IL SALVATAGGIO */
         .image-overlay-protection {
             position: absolute;
             top: 0;
@@ -336,7 +373,6 @@
             background: transparent;
         }
 
-        /* Badge integrato nell'immagine in basso a sinistra */
         .route-badge {
             position: absolute;
             bottom: -1px;
@@ -367,7 +403,6 @@
             color: var(--primary-green);
         }
 
-        /* Testo sotto la card */
         .route-info {
             padding: 22px 25px;
         }
@@ -466,7 +501,6 @@
                     </select>
                 </div>
 
-                <!-- PULSANTE RICERCA CHE APRE DISCORD IN UNA NUOVA SCHEDA -->
                 <a href="https://discord.gg/RSH3TTbDEh" target="_blank" class="btn-search-link">
                     <button type="button" class="btn-search">
                         Ricerca <i class="fa-solid fa-arrow-right"></i>
@@ -482,26 +516,41 @@
         </div>
     </main>
 
-    <!-- Flight Offers Bar -->
+    <!-- BARRA CON TESTO SCORREVOLE IN CONTINUO -->
     <div class="ticker-bar">
-        <span><strong>Skiathos (JSI) - Roma (FCO)</strong> da <strong>0 R$</strong> (Offerta Gratuita Roblox)</span>
+        <div class="ticker-track">
+            <!-- Blocchi duplicati per garantire uno scorrimento continuo senza interruzioni -->
+            <div class="ticker-item">
+                <span>✈️ <strong>Skiathos (JSI) - Roma (FCO)</strong> da <strong class="highlight">0 R$</strong> (Offerta Gratuita Roblox)</span>
+            </div>
+            <div class="ticker-item">
+                <span>🎟️ Prenota ora sul nostro server Discord ufficiale!</span>
+            </div>
+            <div class="ticker-item">
+                <span>⭐ Entra nel Gruppo Roblox per sbloccare tutti i vantaggi VIP!</span>
+            </div>
+
+            <!-- Duplicato per l'effetto di loop infinito -->
+            <div class="ticker-item">
+                <span>✈️ <strong>Skiathos (JSI) - Roma (FCO)</strong> da <strong class="highlight">0 R$</strong> (Offerta Gratuita Roblox)</span>
+            </div>
+            <div class="ticker-item">
+                <span>🎟️ Prenota ora sul nostro server Discord ufficiale!</span>
+            </div>
+            <div class="ticker-item">
+                <span>⭐ Entra nel Gruppo Roblox per sbloccare tutti i vantaggi VIP!</span>
+            </div>
+        </div>
     </div>
 
     <!-- Le Nostre Nuove Rotte Section -->
     <section class="routes-section">
         <h2>Le nostre nuove rotte</h2>
 
-        <!-- Card Promozionale dello stesso stile Aeroitalia -->
         <div class="route-card">
             <div class="route-image-container" oncontextmenu="return false;">
-                
-                <!-- Strato trasparente per impedire il clic sull'immagine -->
                 <div class="image-overlay-protection"></div>
-
-                <!-- Immagine Protetta -->
                 <img src="Screenshot 2026-09-07 203446.png" alt="Skiathos a Roma Roblox" class="protected-img">
-                
-                <!-- Badge integrato nell'immagine in basso a sinistra -->
                 <div class="route-badge">
                     <span class="origin">Skiathos</span>
                     <i class="fa-solid fa-right-left icon"></i>
@@ -515,23 +564,19 @@
         </div>
     </section>
 
-    <!-- SCRIPT JAVASCRIPT ANTI-TASTO DESTRO E SCRIPT DI PROTEZIONE -->
     <script>
-        // Disabilita il tasto destro su tutta la pagina per le immagini
         document.addEventListener('contextmenu', function (e) {
             if (e.target.tagName === 'IMG' || e.target.classList.contains('image-overlay-protection')) {
                 e.preventDefault();
             }
         });
 
-        // Disabilita il drag & drop delle immagini
         document.addEventListener('dragstart', function (e) {
             if (e.target.tagName === 'IMG') {
                 e.preventDefault();
             }
         });
 
-        // Disabilita scorciatoie da tastiera per salvare o ispezionare
         document.addEventListener('keydown', function (e) {
             if ((e.ctrlKey && (e.key === 's' || e.key === 'u')) || e.key === 'F12') {
                 e.preventDefault();
