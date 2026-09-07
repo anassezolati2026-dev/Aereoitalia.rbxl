@@ -81,7 +81,7 @@
         /* Main Header */
         header {
             background: var(--white);
-            padding: 10px 5%;
+            padding: 15px 5%;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -97,11 +97,11 @@
             text-decoration: none;
         }
 
-        /* LOGO MOLTO GRANDE CON PROTEZIONE */
+        /* LOGO INGRANDITO AL MASSIMO */
         .logo-img {
-            height: 150px;
+            height: 220px;
             width: auto;
-            max-width: 450px;
+            max-width: 600px;
             object-fit: contain;
             transition: transform 0.3s ease;
             pointer-events: none;
@@ -205,6 +205,13 @@
             cursor: pointer;
         }
 
+        /* Link Pulsante Cerca per Discord */
+        .btn-search-link {
+            text-decoration: none;
+            height: 100%;
+            display: block;
+        }
+
         .btn-search {
             background-color: var(--primary-green);
             color: white;
@@ -222,6 +229,7 @@
             gap: 10px;
             transition: background-color 0.3s ease;
             box-shadow: 0 4px 12px rgba(0, 150, 64, 0.3);
+            width: 100%;
         }
 
         .btn-search:hover {
@@ -374,16 +382,16 @@
 
         /* Responsive Styles */
         @media (max-width: 1100px) {
-            .logo-img { height: 110px; }
+            .logo-img { height: 150px; }
             .search-grid { grid-template-columns: 1fr 1fr; }
-            .btn-search { grid-column: span 2; }
+            .btn-search-link { grid-column: span 2; }
             nav { display: none; }
         }
 
         @media (max-width: 768px) {
-            .logo-img { height: 90px; }
+            .logo-img { height: 110px; }
             .search-grid { grid-template-columns: 1fr; }
-            .btn-search { grid-column: span 1; }
+            .btn-search-link { grid-column: span 1; }
             .hero { min-height: auto; padding: 30px 15px; }
             .promo-badge { position: relative; bottom: 0; left: 0; margin-top: 25px; width: 100%; text-align: center; }
             .route-image-container { height: 240px; }
@@ -402,7 +410,7 @@
             <i class="fa-solid fa-gamepad"></i> GRUPPO ROBLOX
         </a>
         <a href="#">PARTNERS</a>
-        <a href="#">CHECK-IN ROBLOX</a>
+        <a href="https://discord.gg/RSH3TTbDEh" target="_blank">WEB CHECKIN</a>
         <a href="#">ASSISTENZA</a>
         <a href="#"><i class="fa-solid fa-globe"></i> IT (Roblox)</a>
     </div>
@@ -429,7 +437,7 @@
     <main class="hero">
         <div class="search-container">
             <div class="search-title">Il vostro prossimo volo Roblox vi aspetta &darr;</div>
-            <form class="search-grid" onsubmit="event.preventDefault(); alert('Volo selezionato: Skiathos (JSI) -> Roma (FCO) a 0 R$!');">
+            <form class="search-grid" action="https://discord.gg/RSH3TTbDEh" method="get" target="_blank">
                 
                 <div class="input-group">
                     <label for="departure"><i class="fa-solid fa-plane-departure"></i> Partenza</label>
@@ -459,9 +467,12 @@
                     </select>
                 </div>
 
-                <button type="submit" class="btn-search">
-                    Ricerca <i class="fa-solid fa-arrow-right"></i>
-                </button>
+                <!-- PULSANTE RICERCA CHE APRE DISCORD IN UNA NUOVA SCHEDA -->
+                <a href="https://discord.gg/RSH3TTbDEh" target="_blank" class="btn-search-link">
+                    <button type="button" class="btn-search">
+                        Ricerca <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </a>
 
             </form>
         </div>
