@@ -33,11 +33,16 @@
             --border-color: #e2e8f0;
         }
 
+        /* PERMETTE LA PROTEZIONE ANTI-COPIA GLOBALMENTE */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Poppins', sans-serif;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
 
         body {
@@ -92,13 +97,15 @@
             text-decoration: none;
         }
 
-        /* LOGO MOLTO GRANDE */
+        /* LOGO MOLTO GRANDE CON PROTEZIONE */
         .logo-img {
             height: 150px;
             width: auto;
             max-width: 450px;
             object-fit: contain;
             transition: transform 0.3s ease;
+            pointer-events: none;
+            -webkit-user-drag: none;
         }
 
         .logo-img:hover {
@@ -147,6 +154,8 @@
             max-width: 1100px;
             box-shadow: 0 15px 35px rgba(0,0,0,0.2);
             margin-top: 20px;
+            -webkit-user-select: auto;
+            user-select: auto;
         }
 
         .search-title {
@@ -274,7 +283,7 @@
             font-weight: 700;
         }
 
-        /* CARD ROTTA UGUALE AD AEROITALIA */
+        /* CARD ROTTA CON PROTEZIONE IMMAGINE */
         .route-card {
             background: #fff;
             border-radius: 24px;
@@ -293,12 +302,31 @@
             position: relative;
             width: 100%;
             height: 320px;
+            overflow: hidden;
         }
 
-        .route-image-container img {
+        /* IMMAGINE PROTETTA: NO DRAG & NO POINTER EVENTS */
+        .protected-img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            pointer-events: none;
+            -webkit-user-drag: none;
+            -khtml-user-drag: none;
+            -moz-user-drag: none;
+            -o-user-drag: none;
+            user-drag: none;
+        }
+
+        /* STRATO TRASPARENTE SOPRA L'IMMAGINE PER BLOCCARE IL TASTO DESTRO E IL SALVATAGGIO */
+        .image-overlay-protection {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 5;
+            background: transparent;
         }
 
         /* Badge integrato nell'immagine in basso a sinistra */
@@ -315,6 +343,7 @@
             font-size: 1.3rem;
             font-weight: 800;
             box-shadow: 4px -4px 15px rgba(0,0,0,0.05);
+            z-index: 10;
         }
 
         .route-badge .origin {
@@ -341,12 +370,6 @@
             color: #0b3c5d;
             font-weight: 700;
             margin-bottom: 6px;
-        }
-
-        .route-info p {
-            font-size: 0.95rem;
-            color: #666;
-            font-weight: 500;
         }
 
         /* Responsive Styles */
@@ -460,11 +483,15 @@
 
         <!-- Card Promozionale dello stesso stile Aeroitalia -->
         <div class="route-card">
-            <div class="route-image-container">
-                <!-- Sostituisci con il file 'Screenshot 2026-09-07 203446.png' caricato su GitHub -->
-                <img src="Screenshot 2026-09-07 203446.png" alt="Skiathos a Roma Roblox">
+            <div class="route-image-container" oncontextmenu="return false;">
                 
-                <!-- Badge sovrapposto nell'angolo in basso a sinistra -->
+                <!-- Strato trasparente per impedire il clic sull'immagine -->
+                <div class="image-overlay-protection"></div>
+
+                <!-- Immagine Protetta -->
+                <img src="Screenshot 2026-09-07 203446.png" alt="Skiathos a Roma Roblox" class="protected-img">
+                
+                <!-- Badge integrato nell'immagine in basso a sinistra -->
                 <div class="route-badge">
                     <span class="origin">Skiathos</span>
                     <i class="fa-solid fa-right-left icon"></i>
@@ -477,6 +504,30 @@
             </div>
         </div>
     </section>
+
+    <!-- SCRIPT JAVASCRIPT ANTI-TASTO DESTRO E SCRIPT DI PROTEZIONE -->
+    <script>
+        // Disabilita il tasto destro su tutta la pagina per le immagini
+        document.addEventListener('contextmenu', function (e) {
+            if (e.target.tagName === 'IMG' || e.target.classList.contains('image-overlay-protection')) {
+                e.preventDefault();
+            }
+        });
+
+        // Disabilita il drag & drop delle immagini
+        document.addEventListener('dragstart', function (e) {
+            if (e.target.tagName === 'IMG') {
+                e.preventDefault();
+            }
+        });
+
+        // Disabilita scorciatoie da tastiera per salvare o ispezionare
+        document.addEventListener('keydown', function (e) {
+            if ((e.ctrlKey && (e.key === 's' || e.key === 'u')) || e.key === 'F12') {
+                e.preventDefault();
+            }
+        });
+    </script>
 
 </body>
 </html>
