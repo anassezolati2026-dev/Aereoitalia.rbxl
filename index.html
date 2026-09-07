@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aeroitalia - Roblox Edition</title>
+    <!-- Carica Tailwind CSS per replicare la grafica -->
+    <script src="https://jsdelivr.net"></script>
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-white text-slate-800 min-h-screen">
+
+    <!-- 1. BARRA DI NAVIGAZIONE SUPERIORE (Stile Aeroitalia originale) -->
+    <header class="w-full bg-white border-b border-gray-100">
+        <!-- Menu piccolino in alto -->
+        <div class="max-w-7xl mx-auto px-6 py-1.5 flex justify-end space-x-6 text-[11px] font-bold text-gray-500 uppercase tracking-wider">
+            <a href="#" class="hover:text-green-600">Agenzie</a>
+            <a href="#" class="hover:text-green-600">Corporate</a>
+            <a href="#" class="hover:text-green-600">Partners</a>
+            <a href="#" class="hover:text-green-600">Web Check-in</a>
+            <a href="#" class="hover:text-green-600 text-red-600">Prenotazione</a>
+            <a href="#" class="hover:text-green-600">News</a>
+            <a href="#" class="hover:text-green-600">Assistenza</a>
+        </div>
+
+        <!-- Menu principale con Logo -->
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- Logo Aeroitalia stile Roblox -->
+            <div class="flex items-baseline">
+                <span class="text-3xl font-serif italic font-black text-green-700">A</span>
+                <span class="text-2xl font-sans font-bold tracking-tight text-slate-800 -ml-0.5">eroitalia</span>
+                <span class="ml-2 bg-red-600 text-white text-[10px] font-black px-2 py-0.5 rounded uppercase">Roblox</span>
+            </div>
+
+            <!-- Voci di menu -->
+            <nav class="flex space-x-6 text-sm font-bold text-slate-700 tracking-wide">
+                <a href="#" class="text-green-700 border-b-2 border-green-700 pb-1">Prenota</a>
+                <a href="#" class="hover:text-green-700 transition">Ispirami</a>
+                <a href="#" class="hover:text-green-700 transition">Destinazioni</a>
+                <a href="#" class="hover:text-green-700 transition">Chi siamo</a>
+                <a href="#" class="hover:text-green-700 transition">La nostra flotta</a>
+                <a href="#" class="hover:text-green-700 transition">Lavora con noi</a>
+                <a href="#" class="hover:text-green-700 transition">Contattaci</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 2. SEZIONE HERO CON SFONDO E PANNELLO DI RICERCA FLOTTANTE -->
+    <main class="relative w-full">
+        <!-- Immagine di Sfondo (Città di Milano / Sfondo di gioco) -->
+        <div class="w-full h-[480px] bg-cover bg-center relative" style="background-image: url('https://unsplash.com');">
+            <!-- Sfumatura scura per leggere meglio i testi -->
+            <div class="absolute inset-0 bg-black/20"></div>
+            
+            <div class="max-w-7xl mx-auto px-6 pt-12 relative z-10">
+                
+                <!-- PANNELLO BIANCO DI RICERCA (Uguale allo screenshot) -->
+                <div class="bg-white rounded-xl shadow-2xl p-6 max-w-6xl mx-auto border border-gray-100">
+                    <p class="text-sm font-bold text-slate-700 mb-4 flex items-center">
+                        Il vostro prossimo volo vi aspetta <span class="ml-1 text-xs text-gray-400">↓</span>
+                    </p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-2 items-center bg-gray-50 p-2 rounded-lg border border-gray-200">
+                        <!-- Partenza -->
+                        <div class="bg-white p-3 rounded border border-gray-200 shadow-sm">
+                            <label class="block text-[10px] uppercase font-bold text-gray-400">Partenza</label>
+                            <select class="w-full text-xs font-bold text-slate-700 bg-transparent focus:outline-none mt-1">
+                                <option>Seleziona la partenza</option>
+                                <option>Spawn Point Principale (SPP)</option>
+                                <option>Bloxburg International</option>
+                            </select>
+                        </div>
+
+                        <!-- Destinazione -->
+                        <div class="bg-white p-3 rounded border border-gray-200 shadow-sm">
+                            <label class="block text-[10px] uppercase font-bold text-gray-400">Destinazione</label>
+                            <select class="w-full text-xs font-bold text-slate-700 bg-transparent focus:outline-none mt-1">
+                                <option>Seleziona la destinazione</option>
+                                <option>Aeroporto di Milano (Roblox Ed.)</option>
+                                <option>Isola dei Robux</option>
+                            </select>
+                        </div>
+
+                        <!-- Date -->
+                        <div class="bg-white p-3 rounded border border-gray-200 shadow-sm">
+                            <label class="block text-[10px] uppercase font-bold text-gray-400">Date del volo</label>
+                            <input type="text" value="Selezionare le date" class="w-full text-xs font-bold text-slate-700 bg-transparent focus:outline-none mt-1 cursor-pointer" readonly>
+                        </div>
+
+                        <!-- Passeggeri e Bottone Ricerca -->
+                        <div class="flex space-x-2 h-full">
+                            <div class="bg-white p-3 rounded border border-gray-200 shadow-sm flex-grow">
+                                <label class="block text-[10px] uppercase font-bold text-gray-400">Passeggeri</label>
+                                <select class="w-full text-xs font-bold text-slate-700 bg-transparent focus:outline-none mt-1">
+                                    <!-- Testi a tema Roblox -->
+                                    <option>1 Noob</option>
+                                    <option>2 Noob</option>
+                                    <option>1 Pro / Avatar</option>
+                                </select>
+                            </div>
+                            <!-- Bottone Verde Ricerca -->
+                            <button onclick="alert('Ricerca voli Roblox in corso...')" class="bg-[#10b981] hover:bg-emerald-600 text-white font-bold px-6 rounded shadow transition flex items-center justify-center space-x-2 cursor-pointer whitespace-nowrap text-sm">
+                                <span>Ricerca</span>
+                                <span>→</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Badge dell'offerta in basso a sinistra nel banner -->
+                <div class="mt-28 bg-white p-4 rounded-xl shadow-lg inline-block border border-gray-100 ml-4">
+                    <span class="bg-slate-100 text-slate-800 text-xs font-bold px-3 py-1 rounded-full border border-gray-300">da: 39,99 R$</span>
+                    <h2 class="text-xl font-black text-[#002855] mt-2">Voli per Milano</h2>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Barra delle Offerte che scorre sotto il banner -->
+        <div class="w-full bg-gray-50 border-b border-gray-200 py-3 text-[11px] font-bold text-slate-600 overflow-hidden whitespace-nowrap shadow-inner">
+            <div class="max-w-7xl mx-auto px-6 flex space-x-8 justify-center">
+                <span>Milano (LIN) - Roma (FCO) da 34,99 R$</span>
+                <span class="text-gray-300">|</span>
+                <span>Bloxburg - Isola dei Robux da 39,99 R$</span>
+                <span class="text-gray-300">|</span>
+                <span>Spawn Principale - Milano da 29,99 R$</span>
+            </div>
+        </div>
+    </main>
+
+    <!-- Titolo inferiore della pagina -->
+    <section class="max-w-7xl mx-auto px-6 py-12 text-center">
+        <h2 class="text-2xl md:text-3xl font-black text-green-800 tracking-tight">
+            Aeroitalia - la nuova compagnia aerea di Roblox
+        </h2>
+    </section>
+
+</body>
+</html>
