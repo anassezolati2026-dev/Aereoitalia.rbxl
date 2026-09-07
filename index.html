@@ -3,138 +3,355 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aeroitalia - Roblox Edition</title>
-    <!-- Carica Tailwind CSS per replicare la grafica -->
-    <script src="https://jsdelivr.net"></script>
+    <title>Aeroitalia Roblox - La nuova compagnia aerea su Roblox</title>
+    <!-- Google Fonts & Font Awesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
-        body { font-family: 'Inter', sans-serif; }
+        :root {
+            --primary-green: #009640;
+            --primary-red: #e30613;
+            --dark-gray: #333333;
+            --light-bg: #f4f6f8;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--light-bg);
+            color: var(--dark-gray);
+        }
+
+        /* Top Navbar */
+        .top-bar {
+            background-color: #ffffff;
+            border-bottom: 1px solid #e0e0e0;
+            padding: 8px 5%;
+            display: flex;
+            justify-content: flex-end;
+            font-size: 0.8rem;
+            font-weight: 600;
+            gap: 20px;
+            color: #666;
+        }
+
+        .top-bar a {
+            color: #666;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .top-bar a:hover {
+            color: var(--primary-green);
+        }
+
+        /* Main Header */
+        header {
+            background: var(--white);
+            padding: 15px 5%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--dark-gray);
+            text-decoration: none;
+        }
+
+        .logo span.green { color: var(--primary-green); }
+        .logo span.red { color: var(--primary-red); }
+        .logo .roblox-tag {
+            font-size: 0.7rem;
+            background: var(--primary-green);
+            color: white;
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-left: 8px;
+            text-transform: uppercase;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark-gray);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary-green);
+        }
+
+        /* Hero Banner Section */
+        .hero {
+            position: relative;
+            height: 500px;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1513581166391-887a96ddeafd?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        /* Booking Widget */
+        .search-container {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 25px;
+            width: 100%;
+            max-width: 1000px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            margin-top: 40px;
+        }
+
+        .search-title {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .search-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr auto;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .input-group {
+            border: 1px solid #ccc;
+            padding: 10px 15px;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            background: #fff;
+        }
+
+        .input-group label {
+            font-size: 0.75rem;
+            color: #888;
+            margin-bottom: 4px;
+        }
+
+        .input-group select, .input-group input {
+            border: none;
+            outline: none;
+            font-weight: 600;
+            color: var(--dark-gray);
+            background: transparent;
+            font-size: 0.9rem;
+        }
+
+        .btn-search {
+            background-color: var(--primary-green);
+            color: white;
+            border: none;
+            padding: 0 25px;
+            height: 100%;
+            min-height: 50px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: background 0.3s;
+        }
+
+        .btn-search:hover {
+            background-color: #007a33;
+        }
+
+        /* Promo Badge on Hero */
+        .promo-badge {
+            position: absolute;
+            bottom: 30px;
+            left: 5%;
+            background: var(--white);
+            padding: 15px 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .promo-badge .price {
+            display: inline-block;
+            border: 2px solid var(--dark-gray);
+            border-radius: 20px;
+            padding: 2px 12px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+
+        .promo-badge h3 {
+            color: var(--primary-green);
+            font-size: 1.3rem;
+        }
+
+        /* Ticker Bar */
+        .ticker-bar {
+            background: #fff;
+            padding: 12px 5%;
+            border-bottom: 1px solid #ddd;
+            overflow-x: auto;
+            white-space: nowrap;
+            font-size: 0.85rem;
+            color: #555;
+        }
+
+        .ticker-bar span {
+            margin-right: 25px;
+            font-weight: 500;
+        }
+
+        .ticker-bar strong {
+            color: var(--dark-gray);
+        }
+
+        /* Info Section */
+        .info-section {
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        .info-section h2 {
+            font-size: 1.8rem;
+            color: var(--primary-green);
+            margin-bottom: 10px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 900px) {
+            .search-grid {
+                grid-template-columns: 1fr;
+            }
+            nav { display: none; }
+            .hero { height: auto; padding: 40px 20px; }
+            .promo-badge { position: relative; bottom: 0; left: 0; margin-top: 20px; }
+        }
     </style>
 </head>
-<body class="bg-white text-slate-800 min-h-screen">
+<body>
 
-    <!-- 1. BARRA DI NAVIGAZIONE SUPERIORE (Stile Aeroitalia originale) -->
-    <header class="w-full bg-white border-b border-gray-100">
-        <!-- Menu piccolino in alto -->
-        <div class="max-w-7xl mx-auto px-6 py-1.5 flex justify-end space-x-6 text-[11px] font-bold text-gray-500 uppercase tracking-wider">
-            <a href="#" class="hover:text-green-600">Agenzie</a>
-            <a href="#" class="hover:text-green-600">Corporate</a>
-            <a href="#" class="hover:text-green-600">Partners</a>
-            <a href="#" class="hover:text-green-600">Web Check-in</a>
-            <a href="#" class="hover:text-green-600 text-red-600">Prenotazione</a>
-            <a href="#" class="hover:text-green-600">News</a>
-            <a href="#" class="hover:text-green-600">Assistenza</a>
-        </div>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <a href="#">DISCORD</a>
+        <a href="#">GRUPPO ROBLOX</a>
+        <a href="#">PARTNERS</a>
+        <a href="#">CHECK-IN ROBLOX</a>
+        <a href="#">ASSISTENZA</a>
+        <a href="#"><i class="fa-solid fa-globe"></i> IT (Roblox)</a>
+    </div>
 
-        <!-- Menu principale con Logo -->
-        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <!-- Logo Aeroitalia stile Roblox -->
-            <div class="flex items-baseline">
-                <span class="text-3xl font-serif italic font-black text-green-700">A</span>
-                <span class="text-2xl font-sans font-bold tracking-tight text-slate-800 -ml-0.5">eroitalia</span>
-                <span class="ml-2 bg-red-600 text-white text-[10px] font-black px-2 py-0.5 rounded uppercase">Roblox</span>
-            </div>
-
-            <!-- Voci di menu -->
-            <nav class="flex space-x-6 text-sm font-bold text-slate-700 tracking-wide">
-                <a href="#" class="text-green-700 border-b-2 border-green-700 pb-1">Prenota</a>
-                <a href="#" class="hover:text-green-700 transition">Ispirami</a>
-                <a href="#" class="hover:text-green-700 transition">Destinazioni</a>
-                <a href="#" class="hover:text-green-700 transition">Chi siamo</a>
-                <a href="#" class="hover:text-green-700 transition">La nostra flotta</a>
-                <a href="#" class="hover:text-green-700 transition">Lavora con noi</a>
-                <a href="#" class="hover:text-green-700 transition">Contattaci</a>
-            </nav>
-        </div>
+    <!-- Header Navigation -->
+    <header>
+        <a href="#" class="logo">
+            <span class="red">A</span><span class="green">eroitalia</span>
+            <span class="roblox-tag">Roblox Edition</span>
+        </a>
+        <nav>
+            <ul>
+                <li><a href="#">Prenota Volo</a></li>
+                <li><a href="#">Ispirami</a></li>
+                <li><a href="#">Aeroporti Roblox</a></li>
+                <li><a href="#">Chi siamo</a></li>
+                <li><a href="#">La nostra Flotta</a></li>
+                <li><a href="#">Diventa Staff</a></li>
+                <li><a href="#">Contattaci</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <!-- 2. SEZIONE HERO CON SFONDO E PANNELLO DI RICERCA FLOTTANTE -->
-    <main class="relative w-full">
-        <!-- Immagine di Sfondo (Città di Milano / Sfondo di gioco) -->
-        <div class="w-full h-[480px] bg-cover bg-center relative" style="background-image: url('https://unsplash.com');">
-            <!-- Sfumatura scura per leggere meglio i testi -->
-            <div class="absolute inset-0 bg-black/20"></div>
-            
-            <div class="max-w-7xl mx-auto px-6 pt-12 relative z-10">
+    <!-- Hero / Booking Section -->
+    <section class="hero">
+        <div class="search-container">
+            <div class="search-title">Il vostro prossimo volo Roblox vi aspetta &darr;</div>
+            <form class="search-grid" onsubmit="event.preventDefault(); alert('Ricerca volo inviata! Verifica disponibilità nel Server Roblox.');">
                 
-                <!-- PANNELLO BIANCO DI RICERCA (Uguale allo screenshot) -->
-                <div class="bg-white rounded-xl shadow-2xl p-6 max-w-6xl mx-auto border border-gray-100">
-                    <p class="text-sm font-bold text-slate-700 mb-4 flex items-center">
-                        Il vostro prossimo volo vi aspetta <span class="ml-1 text-xs text-gray-400">↓</span>
-                    </p>
-
-                    <div class="grid grid-cols-1 md:grid-cols-4 gap-2 items-center bg-gray-50 p-2 rounded-lg border border-gray-200">
-                        <!-- Partenza -->
-                        <div class="bg-white p-3 rounded border border-gray-200 shadow-sm">
-                            <label class="block text-[10px] uppercase font-bold text-gray-400">Partenza</label>
-                            <select class="w-full text-xs font-bold text-slate-700 bg-transparent focus:outline-none mt-1">
-                                <option>Seleziona la partenza</option>
-                                <option>Spawn Point Principale (SPP)</option>
-                                <option>Bloxburg International</option>
-                            </select>
-                        </div>
-
-                        <!-- Destinazione -->
-                        <div class="bg-white p-3 rounded border border-gray-200 shadow-sm">
-                            <label class="block text-[10px] uppercase font-bold text-gray-400">Destinazione</label>
-                            <select class="w-full text-xs font-bold text-slate-700 bg-transparent focus:outline-none mt-1">
-                                <option>Seleziona la destinazione</option>
-                                <option>Aeroporto di Milano (Roblox Ed.)</option>
-                                <option>Isola dei Robux</option>
-                            </select>
-                        </div>
-
-                        <!-- Date -->
-                        <div class="bg-white p-3 rounded border border-gray-200 shadow-sm">
-                            <label class="block text-[10px] uppercase font-bold text-gray-400">Date del volo</label>
-                            <input type="text" value="Selezionare le date" class="w-full text-xs font-bold text-slate-700 bg-transparent focus:outline-none mt-1 cursor-pointer" readonly>
-                        </div>
-
-                        <!-- Passeggeri e Bottone Ricerca -->
-                        <div class="flex space-x-2 h-full">
-                            <div class="bg-white p-3 rounded border border-gray-200 shadow-sm flex-grow">
-                                <label class="block text-[10px] uppercase font-bold text-gray-400">Passeggeri</label>
-                                <select class="w-full text-xs font-bold text-slate-700 bg-transparent focus:outline-none mt-1">
-                                    <!-- Testi a tema Roblox -->
-                                    <option>1 Noob</option>
-                                    <option>2 Noob</option>
-                                    <option>1 Pro / Avatar</option>
-                                </select>
-                            </div>
-                            <!-- Bottone Verde Ricerca -->
-                            <button onclick="alert('Ricerca voli Roblox in corso...')" class="bg-[#10b981] hover:bg-emerald-600 text-white font-bold px-6 rounded shadow transition flex items-center justify-center space-x-2 cursor-pointer whitespace-nowrap text-sm">
-                                <span>Ricerca</span>
-                                <span>→</span>
-                            </button>
-                        </div>
-                    </div>
+                <div class="input-group">
+                    <label><i class="fa-solid fa-plane-departure"></i> Partenza</label>
+                    <select required>
+                        <option value="">Seleziona la partenza</option>
+                        <option value="LIN">Milano Linate (LIN)</option>
+                        <option value="FCO">Roma Fiumicino (FCO)</option>
+                        <option value="OLB">Olbia (OLB)</option>
+                    </select>
                 </div>
 
-                <!-- Badge dell'offerta in basso a sinistra nel banner -->
-                <div class="mt-28 bg-white p-4 rounded-xl shadow-lg inline-block border border-gray-100 ml-4">
-                    <span class="bg-slate-100 text-slate-800 text-xs font-bold px-3 py-1 rounded-full border border-gray-300">da: 39,99 R$</span>
-                    <h2 class="text-xl font-black text-[#002855] mt-2">Voli per Milano</h2>
+                <div class="input-group">
+                    <label><i class="fa-solid fa-plane-arrival"></i> Destinazione</label>
+                    <select required>
+                        <option value="">Seleziona la destinazione</option>
+                        <option value="PMO">Palermo (PMO)</option>
+                        <option value="CTA">Catania (CTA)</option>
+                        <option value="TRS">Trieste (TRS)</option>
+                    </select>
                 </div>
 
-            </div>
+                <div class="input-group">
+                    <label><i class="fa-regular fa-calendar-days"></i> Data del Volo</label>
+                    <input type="date" required>
+                </div>
+
+                <div class="input-group">
+                    <label><i class="fa-solid fa-user"></i> Passeggeri / Classe</label>
+                    <select>
+                        <option>1 Passeggero (Economy)</option>
+                        <option>1 Passeggero (Business VIP)</option>
+                        <option>2 Passeggeri</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn-search">
+                    Ricerca <i class="fa-solid fa-arrow-right"></i>
+                </button>
+
+            </form>
         </div>
 
-        <!-- Barra delle Offerte che scorre sotto il banner -->
-        <div class="w-full bg-gray-50 border-b border-gray-200 py-3 text-[11px] font-bold text-slate-600 overflow-hidden whitespace-nowrap shadow-inner">
-            <div class="max-w-7xl mx-auto px-6 flex space-x-8 justify-center">
-                <span>Milano (LIN) - Roma (FCO) da 34,99 R$</span>
-                <span class="text-gray-300">|</span>
-                <span>Bloxburg - Isola dei Robux da 39,99 R$</span>
-                <span class="text-gray-300">|</span>
-                <span>Spawn Principale - Milano da 29,99 R$</span>
-            </div>
+        <div class="promo-badge">
+            <div class="price">da: 50 R$</div>
+            <h3>Voli Roblox per Milano</h3>
         </div>
-    </main>
+    </section>
 
-    <!-- Titolo inferiore della pagina -->
-    <section class="max-w-7xl mx-auto px-6 py-12 text-center">
-        <h2 class="text-2xl md:text-3xl font-black text-green-800 tracking-tight">
-            Aeroitalia - la nuova compagnia aerea di Roblox
-        </h2>
+    <!-- Flight Offers Ticker Bar -->
+    <div class="ticker-bar">
+        <span><strong>Milano (LIN) - Trieste</strong> da 50 R$</span> |
+        <span><strong>Milano (LIN) - Comiso</strong> da 50 R$</span> |
+        <span><strong>Olbia - Palermo</strong> da 100 R$</span> |
+        <span><strong>Roma (FCO) - Catania</strong> da 75 R$</span>
+    </div>
+
+    <!-- Info Section -->
+    <section class="info-section">
+        <h2>Aeroitalia - La nuova compagnia aerea su Roblox</h2>
+        <p>Vola sui nostri aerei dettagliati, vivi l'esperienza di volo realistica nei nostri aeroporti Ro-Aviation!</p>
     </section>
 
 </body>
