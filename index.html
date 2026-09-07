@@ -64,11 +64,10 @@
             color: var(--primary-green);
         }
 
-        /* Header con Logo visibile e ben posizionato */
+        /* Header adattato per ospitare un logo grande */
         header {
             background: var(--white);
-            padding: 0 5%;
-            height: 70px;
+            padding: 10px 5%;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -80,14 +79,16 @@
         .logo-container {
             display: flex;
             align-items: center;
-            height: 100%;
+            max-width: 100%;
         }
 
-        /* IMMAGINE LOGO HEADER (AEROTALIATIAMO.png) */
+        /* LOGO A GRANDE DIMENSIONE (1200px) */
         .logo-img {
-            height: 52px;
-            width: auto;
+            width: 1200px;
+            max-width: 100%; /* Si adatta se lo schermo è più piccolo di 1200px */
+            height: auto;
             object-fit: contain;
+            display: block;
         }
 
         nav ul {
@@ -332,7 +333,7 @@
         <a href="#"><i class="fa-solid fa-globe"></i> IT (Roblox)</a>
     </div>
 
-    <!-- Header Navigation con Logo AEROTALIATIAMO.png -->
+    <!-- Header Navigation con Logo AEROTALIATIAMO.png impostato a 1200px -->
     <header>
         <a href="#" class="logo-container">
             <img src="AEROTALIATIAMO.png" alt="Aeroitalia Logo" class="logo-img">
