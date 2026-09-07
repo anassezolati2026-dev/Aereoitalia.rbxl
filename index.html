@@ -4,28 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- FAVICON (Icona della scheda del browser) -->
+    <!-- ICONA SULLA SCHEDA DEL BROWSER (Favicon) -->
     <link rel="icon" type="image/png" href="aeroitalia.png">
-    <link rel="shortcut icon" type="image/png" href="aeroitalia.png">
 
-    <!-- TITOLO DELLA SCHEDA -->
+    <!-- TITOLO SCHEDA -->
     <title>Aeroitalia - la nuova compagnia</title>
 
-    <!-- Primary Meta Tags (SEO) -->
-    <meta name="title" content="Aeroitalia - la nuova compagnia">
-    <meta name="description" content="Prenota i tuoi voli gratuiti da Skiathos a Roma con Aeroitalia su Roblox. Unisciti al nostro gruppo Roblox e al server Discord per volare con noi!">
-    <meta name="keywords" content="Aeroitalia Roblox, Ro-Aviation, Roblox Airline, Voli Roblox, Skiathos Roma, Aeroitalia, Roblox Group">
-    <meta name="robots" content="index, follow">
-    <meta name="language" content="Italian">
-    <meta name="author" content="Aeroitalia Roblox">
-
-    <!-- Open Graph / Discord / Facebook SEO -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Aeroitalia - la nuova compagnia">
-    <meta property="og:description" content="Vola da Skiathos a Roma a 0 Robux! Entra nel gruppo Roblox ed unisciti alla community Discord.">
-    <meta property="og:image" content="aeroitalia.png">
-
-    <!-- Google Fonts & Font Awesome Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -39,15 +23,12 @@
             --border-color: #e2e8f0;
         }
 
-        /* PROTEZIONE ANTI-COPIA GLOBALMENTE */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Poppins', sans-serif;
             -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
             user-select: none;
         }
 
@@ -57,7 +38,7 @@
             overflow-x: hidden;
         }
 
-        /* Top Bar Sub-navigation */
+        /* Top Bar */
         .top-bar {
             background-color: #ffffff;
             border-bottom: 1px solid var(--border-color);
@@ -68,13 +49,11 @@
             font-size: 0.78rem;
             font-weight: 700;
             gap: 22px;
-            letter-spacing: 0.5px;
         }
 
         .top-bar a {
             color: #555;
             text-decoration: none;
-            transition: color 0.2s ease;
             display: flex;
             align-items: center;
             gap: 6px;
@@ -84,10 +63,10 @@
             color: var(--primary-green);
         }
 
-        /* Main Header COMPATTO */
+        /* Header con Logo visibile e ben allineato */
         header {
             background: var(--white);
-            padding: 10px 5%;
+            padding: 0 5%;
             height: 70px;
             display: flex;
             align-items: center;
@@ -100,21 +79,13 @@
         .logo-container {
             display: flex;
             align-items: center;
-            text-decoration: none;
             height: 100%;
-            position: relative;
         }
 
-        /* LOGO INGRANDITO SENZA ALLARGARE LA BARRA BIANCA */
         .logo-img {
-            height: 120px;
+            height: 48px;
             width: auto;
-            max-width: 400px;
             object-fit: contain;
-            pointer-events: none;
-            -webkit-user-drag: none;
-            transform: scale(1.3);
-            transform-origin: left center;
         }
 
         nav ul {
@@ -129,16 +100,13 @@
             color: var(--dark-gray);
             font-weight: 600;
             font-size: 0.95rem;
-            transition: color 0.2s ease;
-            position: relative;
-            padding-bottom: 4px;
         }
 
         nav ul li a:hover {
             color: var(--primary-green);
         }
 
-        /* Hero Banner Section */
+        /* Hero Section */
         .hero {
             position: relative;
             min-height: 560px;
@@ -150,7 +118,6 @@
             padding: 40px 20px;
         }
 
-        /* Booking Widget Container */
         .search-container {
             background: var(--white);
             border-radius: 16px;
@@ -159,8 +126,6 @@
             max-width: 1100px;
             box-shadow: 0 15px 35px rgba(0,0,0,0.2);
             margin-top: 20px;
-            -webkit-user-select: auto;
-            user-select: auto;
         }
 
         .search-title {
@@ -196,10 +161,6 @@
             gap: 6px;
         }
 
-        .input-group label i {
-            color: var(--primary-green);
-        }
-
         .input-group select, .input-group input {
             border: none;
             outline: none;
@@ -231,16 +192,9 @@
             align-items: center;
             justify-content: center;
             gap: 10px;
-            transition: background-color 0.3s ease;
-            box-shadow: 0 4px 12px rgba(0, 150, 64, 0.3);
             width: 100%;
         }
 
-        .btn-search:hover {
-            background-color: #007a33;
-        }
-
-        /* Promo Badge on Hero */
         .promo-badge {
             position: absolute;
             bottom: 30px;
@@ -267,46 +221,34 @@
             font-weight: 700;
         }
 
-        /* --- BARRA A SCORRIMENTO FLUIDO (TICKER BAR MARQUEE) --- */
+        /* BARRA SOLO CON IL TESTO ORIGINALE SCORREVOLE */
         .ticker-bar {
             background: #fff;
             border-bottom: 1px solid var(--border-color);
             overflow: hidden;
             white-space: nowrap;
             position: relative;
-            padding: 14px 0;
+            padding: 16px 0;
             display: flex;
         }
 
         .ticker-track {
             display: flex;
             width: max-content;
-            animation: scrollTicker 25s linear infinite;
+            animation: scrollTicker 18s linear infinite;
         }
 
         .ticker-bar:hover .ticker-track {
-            animation-play-state: paused; /* Si mette in pausa col mouse sopra */
+            animation-play-state: paused;
         }
 
         .ticker-item {
             font-size: 0.95rem;
-            color: #555;
-            padding: 0 40px;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .ticker-item strong {
             color: var(--dark-gray);
+            padding: 0 80px;
+            font-weight: 600;
         }
 
-        .ticker-item .highlight {
-            color: var(--primary-green);
-            font-weight: 700;
-        }
-
-        /* Animazione CSS per lo scorrimento continuo */
         @keyframes scrollTicker {
             0% {
                 transform: translateX(0);
@@ -316,7 +258,7 @@
             }
         }
 
-        /* Section Title & Routes Section */
+        /* Sezione Rotte */
         .routes-section {
             padding: 60px 5%;
             max-width: 1200px;
@@ -336,19 +278,12 @@
             overflow: hidden;
             box-shadow: 0 8px 25px rgba(0,0,0,0.08);
             max-width: 650px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .route-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 30px rgba(0,0,0,0.12);
         }
 
         .route-image-container {
             position: relative;
             width: 100%;
             height: 320px;
-            overflow: hidden;
         }
 
         .protected-img {
@@ -356,21 +291,6 @@
             height: 100%;
             object-fit: cover;
             pointer-events: none;
-            -webkit-user-drag: none;
-            -khtml-user-drag: none;
-            -moz-user-drag: none;
-            -o-user-drag: none;
-            user-drag: none;
-        }
-
-        .image-overlay-protection {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 5;
-            background: transparent;
         }
 
         .route-badge {
@@ -385,22 +305,6 @@
             gap: 10px;
             font-size: 1.3rem;
             font-weight: 800;
-            box-shadow: 4px -4px 15px rgba(0,0,0,0.05);
-            z-index: 10;
-        }
-
-        .route-badge .origin {
-            color: #1a1a1a;
-        }
-
-        .route-badge .icon {
-            color: #888;
-            font-size: 1.1rem;
-            margin: 0 4px;
-        }
-
-        .route-badge .destination {
-            color: var(--primary-green);
         }
 
         .route-info {
@@ -411,25 +315,6 @@
             font-size: 1.35rem;
             color: #0b3c5d;
             font-weight: 700;
-            margin-bottom: 6px;
-        }
-
-        /* Responsive Styles */
-        @media (max-width: 1100px) {
-            .logo-img { transform: scale(1.1); }
-            .search-grid { grid-template-columns: 1fr 1fr; }
-            .btn-search-link { grid-column: span 2; }
-            nav { display: none; }
-        }
-
-        @media (max-width: 768px) {
-            .logo-img { transform: scale(1); }
-            .search-grid { grid-template-columns: 1fr; }
-            .btn-search-link { grid-column: span 1; }
-            .hero { min-height: auto; padding: 30px 15px; }
-            .promo-badge { position: relative; bottom: 0; left: 0; margin-top: 25px; width: 100%; text-align: center; }
-            .route-image-container { height: 240px; }
-            .route-badge { font-size: 1.1rem; padding: 10px 20px; }
         }
     </style>
 </head>
@@ -437,22 +322,18 @@
 
     <!-- Top Bar Links -->
     <div class="top-bar">
-        <a href="https://discord.gg/RSH3TTbDEh" target="_blank" rel="noopener">
-            <i class="fa-brands fa-discord"></i> DISCORD
-        </a>
-        <a href="https://www.roblox.com/it/communities/16168989/AEZ-Aeroitalia#!/about" target="_blank" rel="noopener">
-            <i class="fa-solid fa-gamepad"></i> GRUPPO ROBLOX
-        </a>
+        <a href="https://discord.gg/RSH3TTbDEh" target="_blank"><i class="fa-brands fa-discord"></i> DISCORD</a>
+        <a href="https://www.roblox.com/it/communities/16168989/AEZ-Aeroitalia#!/about" target="_blank"><i class="fa-solid fa-gamepad"></i> GRUPPO ROBLOX</a>
         <a href="#">PARTNERS</a>
         <a href="https://discord.gg/RSH3TTbDEh" target="_blank">WEB CHECKIN</a>
         <a href="#">ASSISTENZA</a>
         <a href="#"><i class="fa-solid fa-globe"></i> IT (Roblox)</a>
     </div>
 
-    <!-- Header Navigation -->
+    <!-- Header Navigation con Logo -->
     <header>
-        <a href="#" class="logo-container" title="Aeroitalia Roblox Home">
-            <img src="aeroitalia.png" alt="Aeroitalia Roblox Logo Official" class="logo-img">
+        <a href="#" class="logo-container">
+            <img src="aeroitalia.png" alt="Aeroitalia Logo" class="logo-img">
         </a>
         <nav>
             <ul>
@@ -470,43 +351,27 @@
     <!-- Hero Booking Section -->
     <main class="hero">
         <div class="search-container">
-            <div class="search-title">Il vostro prossimo volo Roblox vi aspetta &darr;</div>
-            <form class="search-grid" action="https://discord.gg/RSH3TTbDEh" method="get" target="_blank">
-                
+            <div class="search-title">Il vostro prossimo volo Roblox vi aspetta |</div>
+            <form class="search-grid">
                 <div class="input-group">
                     <label for="departure"><i class="fa-solid fa-plane-departure"></i> Partenza</label>
-                    <select id="departure" required>
-                        <option value="JSI">Skiathos (JSI)</option>
-                    </select>
+                    <select id="departure"><option>Skiathos (JSI)</option></select>
                 </div>
-
                 <div class="input-group">
                     <label for="arrival"><i class="fa-solid fa-plane-arrival"></i> Destinazione</label>
-                    <select id="arrival" required>
-                        <option value="FCO">Roma (FCO)</option>
-                    </select>
+                    <select id="arrival"><option>Roma (FCO)</option></select>
                 </div>
-
                 <div class="input-group">
                     <label for="flight-date"><i class="fa-regular fa-calendar-days"></i> Data del Volo</label>
-                    <input type="date" id="flight-date" required>
+                    <input type="text" id="flight-date" value="gg/mm/aaaa">
                 </div>
-
                 <div class="input-group">
                     <label for="passengers"><i class="fa-solid fa-user"></i> Passeggeri / Classe</label>
-                    <select id="passengers">
-                        <option>1 Passeggero (Economy)</option>
-                        <option>1 Passeggero (Business VIP)</option>
-                        <option>2 Passeggeri</option>
-                    </select>
+                    <select id="passengers"><option>1 Passeggero (Economy)</option></select>
                 </div>
-
                 <a href="https://discord.gg/RSH3TTbDEh" target="_blank" class="btn-search-link">
-                    <button type="button" class="btn-search">
-                        Ricerca <i class="fa-solid fa-arrow-right"></i>
-                    </button>
+                    <button type="button" class="btn-search">Ricerca &rarr;</button>
                 </a>
-
             </form>
         </div>
 
@@ -516,73 +381,32 @@
         </div>
     </main>
 
-    <!-- BARRA CON TESTO SCORREVOLE IN CONTINUO -->
+    <!-- BARRA CON SOLO IL TESTO DELL'IMMAGINE CHE SCORRE -->
     <div class="ticker-bar">
         <div class="ticker-track">
-            <!-- Blocchi duplicati per garantire uno scorrimento continuo senza interruzioni -->
-            <div class="ticker-item">
-                <span>✈️ <strong>Skiathos (JSI) - Roma (FCO)</strong> da <strong class="highlight">0 R$</strong> (Offerta Gratuita Roblox)</span>
-            </div>
-            <div class="ticker-item">
-                <span>🎟️ Prenota ora sul nostro server Discord ufficiale!</span>
-            </div>
-            <div class="ticker-item">
-                <span>⭐ Entra nel Gruppo Roblox per sbloccare tutti i vantaggi VIP!</span>
-            </div>
-
-            <!-- Duplicato per l'effetto di loop infinito -->
-            <div class="ticker-item">
-                <span>✈️ <strong>Skiathos (JSI) - Roma (FCO)</strong> da <strong class="highlight">0 R$</strong> (Offerta Gratuita Roblox)</span>
-            </div>
-            <div class="ticker-item">
-                <span>🎟️ Prenota ora sul nostro server Discord ufficiale!</span>
-            </div>
-            <div class="ticker-item">
-                <span>⭐ Entra nel Gruppo Roblox per sbloccare tutti i vantaggi VIP!</span>
-            </div>
+            <div class="ticker-item">Skiathos (JSI) - Roma (FCO) da 0 R$ (Offerta Gratuita Roblox)</div>
+            <div class="ticker-item">Skiathos (JSI) - Roma (FCO) da 0 R$ (Offerta Gratuita Roblox)</div>
+            <div class="ticker-item">Skiathos (JSI) - Roma (FCO) da 0 R$ (Offerta Gratuita Roblox)</div>
         </div>
     </div>
 
     <!-- Le Nostre Nuove Rotte Section -->
     <section class="routes-section">
         <h2>Le nostre nuove rotte</h2>
-
         <div class="route-card">
-            <div class="route-image-container" oncontextmenu="return false;">
-                <div class="image-overlay-protection"></div>
-                <img src="Screenshot 2026-09-07 203446.png" alt="Skiathos a Roma Roblox" class="protected-img">
+            <div class="route-image-container">
+                <img src="Screenshot 2026-09-07 203446.png" alt="Skiathos a Roma" class="protected-img">
                 <div class="route-badge">
-                    <span class="origin">Skiathos</span>
-                    <i class="fa-solid fa-right-left icon"></i>
-                    <span class="destination">Roma</span>
+                    <span>Skiathos</span>
+                    <i class="fa-solid fa-right-left"></i>
+                    <span style="color: var(--primary-green);">Roma</span>
                 </div>
             </div>
-
             <div class="route-info">
                 <h3>Skiathos &rarr; Roma / Roma &rarr; Skiathos</h3>
             </div>
         </div>
     </section>
-
-    <script>
-        document.addEventListener('contextmenu', function (e) {
-            if (e.target.tagName === 'IMG' || e.target.classList.contains('image-overlay-protection')) {
-                e.preventDefault();
-            }
-        });
-
-        document.addEventListener('dragstart', function (e) {
-            if (e.target.tagName === 'IMG') {
-                e.preventDefault();
-            }
-        });
-
-        document.addEventListener('keydown', function (e) {
-            if ((e.ctrlKey && (e.key === 's' || e.key === 'u')) || e.key === 'F12') {
-                e.preventDefault();
-            }
-        });
-    </script>
 
 </body>
 </html>
